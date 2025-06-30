@@ -1,0 +1,21 @@
+/build/
+/target/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/out/
+/workspace.xml
+/codeStyles/codeStyleConfig.xml
+/misc.xml
+/modules.xml
+/vcs.xml
+
+### VS Code ###
+.vscode/
+
+# Logs
+var/logs/*
+/src/main/resources/application-dev.properties
