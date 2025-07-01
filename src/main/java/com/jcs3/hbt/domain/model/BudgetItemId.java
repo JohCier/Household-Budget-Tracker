@@ -2,7 +2,7 @@ package com.jcs3.hbt.domain.model;
 
 import java.util.UUID;
 
-public class BudgetItemId extends Id {
+public class BudgetItemId extends DomainEntityId {
 
   protected BudgetItemId(String id) {
     super(id);

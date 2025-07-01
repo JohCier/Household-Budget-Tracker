@@ -2,11 +2,11 @@ package com.jcs3.hbt.domain.model;
 
 import java.util.Objects;
 
-public abstract class Id {
+public abstract class DomainEntityId {
 
   private final String id;
 
-  protected Id(String id) {
+  protected DomainEntityId(String id) {
     this.id = id;
   }
 
@@ -22,7 +22,7 @@ public abstract class Id {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Id that = (Id) o;
+    DomainEntityId that = (DomainEntityId) o;
     return Objects.equals(id, that.id);
   }
 

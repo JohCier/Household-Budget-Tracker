@@ -1,13 +1,15 @@
 package com.jcs3.hbt.domain.model;
 
+import com.jcs3.hbt.application.command.ChangeAmountCmd;
+import com.jcs3.hbt.domain.model.event.BudgetItemAmountChangedEvent;
 import com.jcs3.hbt.domain.model.valueobject.Description;
 import com.jcs3.hbt.domain.model.valueobject.Money;
 
 public class BudgetItem extends DomainEntity<BudgetItemId> {
 
-  private final Description description;
-  private final Money amount;
-  private final BudgetItemCategory category;
+  private Description description;
+  private Money amount;
+  private BudgetItemCategory category;
 
   // Constructors ------------------------------------------------------------------------------------------------------
 
@@ -23,6 +25,12 @@ public class BudgetItem extends DomainEntity<BudgetItemId> {
   }
 
   // Commands ----------------------------------------------------------------------------------------------------------
+
+  public void execute(ChangeAmountCmd changeAmountCmd) {
+    Money oldAmount = amount;
+    this.amount = changeAmountCmd.amount();
+    addEvent(new BudgetItemAmountChangedEvent(getId(), amount, oldAmount));
+  }
 
   // Queries -----------------------------------------------------------------------------------------------------------
 
